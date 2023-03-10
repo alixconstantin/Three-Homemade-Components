@@ -2,16 +2,66 @@
 
 ##  Reusable threeJS components with Vite
 
-## Build a vite ThreeJS component 
+## 🍥 Build a vite ThreeJS component 🍥
 
-- Start by create a basic vite project : 
+
+1. Start by create a basic vite project 
 ```sh
 npm create vite@latest
 ```
 - select name project
 - select Vanilla or your framework
 - select if you want to writte it with JavaScript or TypeScript
+- then : 
+```sh
+npm install 
+npm run dev 
+```
 
+2. Install ThreeJS  
+- install ThreeJS :
+```sh
+npm install three
+```
+3. Install a debugger ( optional )
+- install Debug UI : 
+```sh
+npm install dat.gui
+```
+- then :
+```sh
+import * as dat from 'dat.gui'
+const gui = new dat.GUI()
+```
+- use exemple : 
+```sh
+gui.add(material, "metalness").min(0).max(1).step(0.0001);
+gui.add(material, "roughness").min(0).max(1).step(0.0001);
+```
+4. Install Orbit control for a global mouse control on 3D Scene :
+- import it from node_modules : 
+```sh
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+```
+- For it to work, you must provide the camera and the element in the page that will handle the mouse events as parameters:
+```sh
+const controls = new OrbitControls(camera, canvas)
+```
+- You can smooth the animation by adding some kind of acceleration and friction formulas :
+```sh
+controls.enableDamping = true
+// in your framerate control dont forget to add it : 
+const tick = () =>
+{
+    // ...
+
+    // Update controls
+    controls.update()
+
+    // ...
+}
+
+```
 
 
 
