@@ -50,7 +50,7 @@ const controls = new OrbitControls(camera, canvas)
 - You can smooth the animation by adding some kind of acceleration and friction formulas :
 ```sh
 controls.enableDamping = true
-// in your framerate control dont forget to add it  
+// dont forget to add it in your framerate control 
 const tick = () =>
 {
     // ...
